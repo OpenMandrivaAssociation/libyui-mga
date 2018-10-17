@@ -76,10 +76,11 @@ This package provides headers files for libyui-mga development.
 	-DSKIP_LATEX:BOOL=yes \
 	-DINSTALL_DOCS=yes   \
 	-DENABLE_EXAMPLES=no \
-	-DCMAKE_BUILD_TYPE=RELWITHDEBINFO
+	-DCMAKE_BUILD_TYPE=RELWITHDEBINFO \
+	-G Ninja
 
-%make_build
-%make_build docs
+%ninja_build
+%ninja_build docs
 
 %install
-%make_install -C build
+%ninja_install -C build
