@@ -1,10 +1,10 @@
 %define major 8
-%define libname %mklibname yui-mga %{major}
+%define libname %mklibname yui %{major}-mga
 %define develname %mklibname -d yui-mga
 
 Name:		libyui-mga
 Version:	1.0.8
-Release:	2
+Release:	3
 Summary:	UI abstraction library - Mageia extension widget base plugin
 License:	LGPLv2+
 Group:		System/Libraries
@@ -32,6 +32,7 @@ Summary:	%{summary}
 Group:		System/Libraries
 Requires:	libyui
 Provides:	%{name} = %{EVRD}
+%rename %{_lib}yui-mga8
 
 %description -n %{libname}
 This package contains the library needed to run programs
@@ -40,15 +41,13 @@ dynamically linked with libyui-mga.
 %files -n %{libname}
 %{_libdir}/libyui-mga.so.%{major}*
 
-
 #-----------------------------------------------------------------------
 
 %package -n %{develname}
 Summary:	%{summary} header files
 Group:		Development/C++
-Requires:	libyui-devel
+Provides:	%{name}-devel = %{EVRD}
 Requires:	%{name} = %{EVRD}
-
 
 %description -n %{develname}
 This package provides headers files for libyui-mga development.
