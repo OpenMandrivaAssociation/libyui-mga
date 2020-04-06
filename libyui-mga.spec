@@ -1,4 +1,4 @@
-%define major 8
+%define major 11
 %define libname %mklibname yui %{major}-mga
 %define develname %mklibname -d yui-mga
 
