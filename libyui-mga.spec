@@ -4,7 +4,7 @@
 
 Name:		libyui-mga
 Version:	1.0.8
-Release:	3
+Release:	4
 Summary:	UI abstraction library - Mageia extension widget base plugin
 License:	LGPLv2+
 Group:		System/Libraries
