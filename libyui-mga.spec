@@ -3,8 +3,8 @@
 %define develname %mklibname -d yui-mga
 
 Name:		libyui-mga
-Version:	1.0.8
-Release:	3
+Version:	1.1.0
+Release:	1
 Summary:	UI abstraction library - Mageia extension widget base plugin
 License:	LGPLv2+
 Group:		System/Libraries
