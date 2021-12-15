@@ -1,23 +1,22 @@
-%define major 8
+%define major 15
 %define libname %mklibname yui %{major}-mga
 %define develname %mklibname -d yui-mga
 
 Name:		libyui-mga
-Version:	1.1.0
+Version:	1.2.1
 Release:	1
 Summary:	UI abstraction library - Mageia extension widget base plugin
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/manatools/libyui-mga
-Source0:	https://github.com/manatools/libyui-mga/archive/%{version}.tar.gz
-
+Source0:	https://github.com/manatools/libyui-mga/archive/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libyui)
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	boost-devel
 BuildRequires:	doxygen
-BuildRequires:	texlive
+#BuildRequires:	texlive
 BuildRequires:	ghostscript
 BuildRequires:	graphviz
 Requires:	libyui
@@ -56,8 +55,8 @@ This package provides headers files for libyui-mga development.
 %{_includedir}/yui
 %{_libdir}/libyui-mga.so
 %{_libdir}/pkgconfig/libyui-mga.pc
-%{_libdir}/cmake/libyui-mga
-%doc %{_docdir}/libyui-mga%{major}
+#%%{_libdir}/cmake/libyui-mga
+%doc README.md TODO.md ./examples MAINTAINER COPYING.lgpl-2.1 COPYING.lgpl-3
 
 #-----------------------------------------------------------------------
 
@@ -65,21 +64,21 @@ This package provides headers files for libyui-mga development.
 %autosetup -p1
 
 %build
-./bootstrap.sh
+#./bootstrap.sh
 %cmake \
 	-DYPREFIX=%{_prefix} \
 	-DDOC_DIR=%{_docdir} \
 	-DLIB_DIR=%{_lib}    \
 	-DENABLE_DEBUG=1     \
-	-DENABLE_WERROR:BOOL=OFF \
 	-DSKIP_LATEX:BOOL=yes \
 	-DINSTALL_DOCS=yes   \
-	-DENABLE_EXAMPLES=no \
+	-DBUILD_EXAMPLES=off \
 	-DCMAKE_BUILD_TYPE=RELWITHDEBINFO \
+	-DWERROR=off \
 	-G Ninja
 
 %ninja_build
-%ninja_build docs
+#%%ninja_build docs
 
 %install
 %ninja_install -C build
